@@ -1,0 +1,26 @@
+[project]
+name = "gmail-calendar"
+version = "0.1.0"
+description = "FastMCP server for Gmail and Google Calendar with Asia/Jerusalem timezone"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "google-api-python-client>=2.202.0",
+    "google-auth-httplib2>=0.4.4",
+    "google-auth-oauthlib>=1.5.0",
+    "mcp<2",
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.5.0",
+    "tzdata>=2024.1",
+]
+
+[project.scripts]
+gmail-calendar = "gmail_calendar.server:main"
+auth = "gmail_calendar.auth:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
